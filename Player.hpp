@@ -14,6 +14,7 @@ public:
 	Player( int maxX, int maxY);
 
 	void	updatePos(int x, int y);
+	void	fire( int direction );
 };
 
 #endif

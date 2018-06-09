@@ -64,3 +64,7 @@ void	Player::updatePos(int x, int y){
 			this->y += y;
 	}
 }
+
+void	Player::fire( int direction ) {
+	
+}
