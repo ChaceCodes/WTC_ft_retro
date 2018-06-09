@@ -4,20 +4,16 @@ COMPFLAGS = -Wall -Werror -Wextra
 
 NAME = ft_retro
 
-SRC = 
+SRC = SRC/ft_retro.cpp
 
-OBJ = $(SRC:.cpp=.o)
+NFLAG = -lncurses
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(COMP) $(COMPFLAGS) -o $(NAME) $(OBJ)
-
-%.o: %.cpp
-	$(COMP) $(COMPFLAGS) -o $@ -c $<
+$(NAME):
+	$(COMP) $(COMPFLAGS) $(SRC) $(NFLAG) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
