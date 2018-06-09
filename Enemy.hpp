@@ -12,7 +12,7 @@ public:
 	Enemy & operator=( const Enemy & srcObj ); // assignation operator overload
 	~Enemy( void ); // destructor
 
-	Enemy( int maxX, int maxY);
+	void	setMax( int maxX, int maxY);
 
 };
 

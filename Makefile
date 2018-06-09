@@ -9,7 +9,8 @@ SRC =	Arena.cpp\
 		GameObject.cpp\
 		Missile.cpp\
 		Player.cpp\
-		main.cpp
+		main.cpp\
+		ObjectManager.cpp
 
 NFLAG = -lncurses
 

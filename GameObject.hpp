@@ -14,21 +14,20 @@ public:
     ~GameObject( void );
     GameObject( int maxX, int maxY );
 
-    int getPosX( void );
-    int getPosY( void );
+    int     getPosX( void );
+    int     getPosY( void );
     void    updatePos( int x, int y );
-    void fire( int direction );
     void    drawSelf( void );
-//  void    erase( void );
-//  void    checkCollision( void ); moved to ArenaObject
-    int maxX;
-    int maxY;
+    int     isActive( void );
+    void    activate( int x, int y );
+
+protected: // maybe
+    int state;
+    int maxX; //might only be needed in GameEntity
+    int maxY; //might only be needed in GameEntity
     int x;
     int y;
-    //Missiles[3];//change to define/variable
-
     char chr;
-
 };
 
 #endif

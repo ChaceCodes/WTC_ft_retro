@@ -18,7 +18,7 @@ Enemy::~Enemy( void ) {
 
 }
 
-Enemy::Enemy(int maxX, int maxY){
+void	Enemy::setMax(int maxX, int maxY){
 	this->maxX = maxX;
 	this->maxY = maxY;
 	this->x = this->maxX - 5;

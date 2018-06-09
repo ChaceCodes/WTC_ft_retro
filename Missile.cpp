@@ -2,8 +2,7 @@
 #include <string>
 
 Missile::Missile( void ) {
-	this->x = 0;
-	this->y = 0;
+	this->state = 0;
 	this->chr = '-';
 }
 
