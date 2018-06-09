@@ -11,6 +11,9 @@ public:
 	Enemy( const Enemy & srcObj ); // copy constructor
 	Enemy & operator=( const Enemy & srcObj ); // assignation operator overload
 	~Enemy( void ); // destructor
+
+	Enemy( int maxX, int maxY);
+
 };
 
 #endif

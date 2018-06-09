@@ -31,6 +31,7 @@ void	Arena::gameLoop( void ){
 	int quit = 0;
 	int y = 1;
 	Player player1(this->maxX, this->maxY);
+	Enemy enemy1( this->maxX, this->maxY );
 	//mvaddch( player1.y, player1.x, '>');
 	player1.drawSelf();
 	while (!quit){
@@ -38,6 +39,8 @@ void	Arena::gameLoop( void ){
 			box( stdscr, 0, 0);
 			//printLine("_/|\\_");
 			//mvaddch( player1.y, player1.x, '>');
+			enemy1.updatePos( -1, 0 );
+			enemy1.drawSelf();
 			player1.drawSelf();
 			refresh();
 			ch = getch();

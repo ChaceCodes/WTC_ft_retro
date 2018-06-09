@@ -4,7 +4,7 @@
 Missile::Missile( void ) {
 	this->x = 0;
 	this->y = 0;
-	this->chr = ">";
+	this->chr = '-';
 }
 
 Missile::Missile( const Missile & srcObj ) {

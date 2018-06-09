@@ -2,9 +2,7 @@
 #include <string>
 
 Player::Player( void ) {
-	this->x = 5;
-	this->y = 5;
-	this->chr = ">";
+
 }
 
 Player::Player( const Player & srcObj ) {
@@ -24,6 +22,9 @@ Player::~Player( void ) {
 Player::Player(int maxX, int maxY){
 	this->maxX = maxX;
 	this->maxY = maxY;
+	this->x = 5;
+	this->y = 5;
+	this->chr = '>';
 }
 
 void	Player::updatePos(int x, int y){

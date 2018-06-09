@@ -42,5 +42,5 @@ void	GameObject::fire( int direction ) {
 }
 
 void	GameObject::drawSelf( void ){
-	mvaddch(this->y, this->x, '>');
+	mvaddch(this->y, this->x, this->chr);
 }

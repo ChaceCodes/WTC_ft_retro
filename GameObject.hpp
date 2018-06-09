@@ -27,7 +27,7 @@ public:
     int y;
     //Missiles[3];//change to define/variable
 
-    std::string chr;
+    char chr;
 
 };
 

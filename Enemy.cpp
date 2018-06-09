@@ -2,9 +2,6 @@
 #include <string>
 
 Enemy::Enemy( void ) {
-	this->x = 0;
-	this->y = 0;
-	this->chr = ">";
 }
 
 Enemy::Enemy( const Enemy & srcObj ) {
@@ -19,4 +16,12 @@ Enemy & Enemy::operator=( const Enemy & srcObj ) {
 
 Enemy::~Enemy( void ) {
 
+}
+
+Enemy::Enemy(int maxX, int maxY){
+	this->maxX = maxX;
+	this->maxY = maxY;
+	this->x = this->maxX - 5;
+	this->y = this->maxY - 5;
+	this->chr = '@';
 }
