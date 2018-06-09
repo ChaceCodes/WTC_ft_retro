@@ -34,10 +34,19 @@ void	Arena::gameLoop( void ){
 	Enemy enemy1( this->maxX, this->maxY );
 	//mvaddch( player1.y, player1.x, '>');
 	player1.drawSelf();
+	int lc = 0;
+	int display = 0;
 	while (!quit){
 			clear();
 			box( stdscr, 0, 0);
-			//printLine("_/|\\_");
+			printLines(&lc);
+		if (display == 80)
+		{
+			lc++;
+			display = 0;
+		}
+		else
+			display++;
 			//mvaddch( player1.y, player1.x, '>');
 			enemy1.updatePos( -1, 0 );
 			enemy1.drawSelf();
@@ -71,10 +80,38 @@ void	Arena::exit( void ){
 	endwin();
 }
 
-// void	Arena::printLine(std::string charComb)
-// {
-// 	for (int i = 1; i < this->maxX; i += charComb.size)
-// 	{
-// 		mvprintw(1, i, charComb);
-// 	}
-// }
+void	Arena::printLines(int *lc )
+{
+	char char1;
+	char char2;
+	char char3;
+	if (*lc == 0)
+	{
+		char1 = '\\';
+		char2 = '_';
+		char3 = '/';
+	}
+	else if (*lc == 1)
+	{
+		char3 = '\\';
+		char1 = '_';
+		char2 = '/';;
+	}
+	else if (*lc == 2)
+	{
+		char2 = '\\';
+		char3 = '_';
+		char1 = '/';
+		*lc = 0;
+	}
+	for (int i = 1; i < this->maxX-3; i++)
+	{
+		mvaddch(1, i, char1);
+		mvaddch(this->maxY-2, i++, char1);
+		mvaddch(1, i, char2);
+		mvaddch(this->maxY-2, i++, char2);
+		mvaddch(1, i, char3);
+		mvaddch(this->maxY-2, i, char3);
+		//usleep ( 1000 );
+	}
+}
