@@ -20,6 +20,7 @@ class Arena{
         void    initialise( void );
         void    gameLoop( void );
         void    exit( void );
+      //  void    printLine( std::string charComb );
         
         int     maxX;
         int     maxY;
