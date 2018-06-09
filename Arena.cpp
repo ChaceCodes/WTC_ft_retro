@@ -34,6 +34,7 @@ void	Arena::gameLoop( void ){
 	mvaddch( player1.y, player1.x, '>');
 	while (!quit){
 			clear();
+			box( stdscr, 0, 0);
 			mvprintw( player1.y, player1.x, ">");
 			refresh();
 			ch = getch();

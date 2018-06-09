@@ -29,7 +29,7 @@ Player::Player(int maxX, int maxY){
 void	Player::updatePos(int x, int y){
 	if (x > 0)
 	{
-		if (this->x + x == maxX)
+		if (this->x + x == maxX-1)
 		{
 			return;
 		}		
@@ -47,7 +47,7 @@ void	Player::updatePos(int x, int y){
 	}
 	if (y > 0)
 	{
-		if (this->y + y == maxY)
+		if (this->y + y == maxY-1)
 		{
 			return;
 		}		
