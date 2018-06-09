@@ -30,7 +30,7 @@ void	Arena::gameLoop( void ){
 	int ch = 0;
 	int quit = 0;
 	int y = 1;
-	Player player1;
+	Player player1(this->maxX, this->maxY);
 	mvaddch( player1.y, player1.x, '>');
 	while (!quit){
 			clear();
@@ -55,7 +55,7 @@ void	Arena::gameLoop( void ){
 					quit = 1;
 					break;
 			}
-		usleep(100000);
+		usleep(1000);
 	}
 		
 }

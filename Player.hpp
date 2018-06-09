@@ -11,6 +11,9 @@ public:
 	Player( const Player & srcObj ); // copy constructor
 	Player & operator=( const Player & srcObj ); // assignation operator overload
 	~Player( void ); // destructor
+	Player( int maxX, int maxY);
+
+	void	updatePos(int x, int y);
 };
 
 #endif

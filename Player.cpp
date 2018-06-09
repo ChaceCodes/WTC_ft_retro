@@ -20,3 +20,47 @@ Player & Player::operator=( const Player & srcObj ) {
 Player::~Player( void ) {
 
 }
+
+Player::Player(int maxX, int maxY){
+	this->maxX = maxX;
+	this->maxY = maxY;
+}
+
+void	Player::updatePos(int x, int y){
+	if (x > 0)
+	{
+		if (this->x + x == maxX)
+		{
+			return;
+		}		
+		else
+			this->x += x;
+	}
+	if (x < 0)
+	{
+		if (this->x + x == 0)
+		{
+			return;
+		}
+		else
+			this->x += x;
+	}
+	if (y > 0)
+	{
+		if (this->y + y == maxY)
+		{
+			return;
+		}		
+		else
+			this->y += y;
+	}
+	if (y < 0)
+	{
+		if (this->y + y == 0)
+		{
+			return;
+		}
+		else
+			this->y += y;
+	}
+}

@@ -18,6 +18,11 @@ GameObject::~GameObject( void ) {
 
 }
 
+GameObject::GameObject( int maxX, int maxY){
+	this->maxX = maxX;
+	this->maxY = maxY;
+}
+
 int     GameObject::getPosX( void ) {
 	return (this->x);
 }
