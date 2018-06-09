@@ -1,6 +1,6 @@
 COMP = clang++
 
-COMPFLAGS = -Wall -Werror -Wextra
+COMPFLAGS = #-Wall -Werror -Wextra
 
 NAME = ft_retro
 
@@ -9,13 +9,16 @@ SRC =	Arena.cpp\
 		GameObject.cpp\
 		Missile.cpp\
 		Player.cpp\
+		main.cpp
+
+NFLAG = -lncurses
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(COMP) $(COMPFLAGS) -o $(NAME) $(OBJ)
+	$(COMP) $(COMPFLAGS) $(NFLAG) -o $(NAME) $(OBJ)
 
 %.o: %.cpp
 	$(COMP) $(COMPFLAGS) -o $@ -c $<

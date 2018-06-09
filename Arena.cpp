@@ -15,3 +15,21 @@ Arena & Arena::operator=( const Arena & srcObj ) {
 Arena::~Arena( void ) {
 
 }
+
+void	Arena::initialise( void ){
+	initscr();
+	keypad(stdscr, TRUE);
+	noecho();
+	curs_set(FALSE);
+	raw();
+	getmaxyx(stdscr, this->maxY, this->maxX);
+}
+
+void	Arena::gameLoop( void ){
+
+	getch();
+}
+
+void	Arena::exit( void ){
+	endwin();
+}
