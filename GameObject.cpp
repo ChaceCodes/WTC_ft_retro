@@ -25,3 +25,8 @@ int     GameObject::getPosX( void ) {
 int     GameObject::getPosY( void ) {
 	return (this->y);
 }
+
+void    GameObject::updatePos( int x, int y ) {
+	this->x += x;
+	this->y += y;
+}

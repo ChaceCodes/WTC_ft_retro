@@ -15,14 +15,10 @@ public:
 
     int getPosX( void );
     int getPosY( void );
-//    void    updatePos( int x, int y );
- //   virtual void    fire( void ) = 0;
-  //  void    erase( void );
-//    void    checkCollision( void ); moved to ArenaObject
-
-
-
-    
+    void    updatePos( int x, int y );
+    virtual void    fire( void ) = 0;
+//  void    erase( void );
+//  void    checkCollision( void ); moved to ArenaObject
 
     int x;
     int y;
