@@ -16,8 +16,8 @@ public:
 
     int getPosX( void );
     int getPosY( void );
-    virtual void    updatePos( int x, int y );
-    // virtual void    fire( void ) = 0;
+    void    updatePos( int x, int y );
+    void    fire( void );
 //  void    erase( void );
 //  void    checkCollision( void ); moved to ArenaObject
     int maxX;
