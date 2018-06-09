@@ -36,6 +36,6 @@ void    GameObject::updatePos( int x, int y ) {
 	this->y += y;
 }
 
-void	GameObject::fire( void ) {
+void	GameObject::fire( int direction ) {
 	return;
 }
