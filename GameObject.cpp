@@ -1,4 +1,5 @@
 #include "GameObject.hpp"
+#include <ncurses.h>
 
 GameObject::GameObject( void ) {
 	this->x = 1;
@@ -38,4 +39,8 @@ void    GameObject::updatePos( int x, int y ) {
 
 void	GameObject::fire( int direction ) {
 	return;
+}
+
+void	GameObject::drawSelf( void ){
+	mvaddch(this->y, this->x, '>');
 }

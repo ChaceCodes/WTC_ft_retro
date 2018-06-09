@@ -31,11 +31,14 @@ void	Arena::gameLoop( void ){
 	int quit = 0;
 	int y = 1;
 	Player player1(this->maxX, this->maxY);
-	mvaddch( player1.y, player1.x, '>');
+	//mvaddch( player1.y, player1.x, '>');
+	player1.drawSelf();
 	while (!quit){
 			clear();
 			box( stdscr, 0, 0);
-			mvprintw( player1.y, player1.x, ">");
+			//printLine("_/|\\_");
+			//mvaddch( player1.y, player1.x, '>');
+			player1.drawSelf();
 			refresh();
 			ch = getch();
  
@@ -64,3 +67,11 @@ void	Arena::gameLoop( void ){
 void	Arena::exit( void ){
 	endwin();
 }
+
+// void	Arena::printLine(std::string charComb)
+// {
+// 	for (int i = 1; i < this->maxX; i += charComb.size)
+// 	{
+// 		mvprintw(1, i, charComb);
+// 	}
+// }

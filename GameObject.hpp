@@ -1,7 +1,6 @@
 #ifndef GAMEOBJECT_H
 # define GAMEOBJECT_H
 
-# include "Missile.hpp"
 # include <string>
 
 class GameObject {
@@ -19,6 +18,7 @@ public:
     int getPosY( void );
     void    updatePos( int x, int y );
     void fire( int direction );
+    void    drawSelf( void );
 //  void    erase( void );
 //  void    checkCollision( void ); moved to ArenaObject
     int maxX;
