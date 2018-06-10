@@ -26,7 +26,7 @@ class Arena{
         void    initialise( void );
         void    gameLoop( void );
         void    exit( void );
-        void    printLines( int *lc );
+        void    printLines( int *lc, int score);
         void    fire(  );
         
         int     maxX;
