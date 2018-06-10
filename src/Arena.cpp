@@ -62,11 +62,12 @@ void	Arena::gameLoop( void ){
 		else { display++; }
 
 		
-		this->OM->enemySpawner( 1, 1); //meaningless values right now
+		this->OM->enemySpawner(); //meaningless values right now
 		this->OM->collisionManager();
 		this->OM->moveManager();
 		this->OM->drawManager();
 		this->OM->objectCleaner();
+		this->OM->gameTickCounter();
 
 		refresh();
 		ch = getch();
