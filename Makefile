@@ -4,22 +4,22 @@ COMPFLAGS = #-Wall -Werror -Wextra
 
 NAME = ft_retro
 
-SRC =	Arena.cpp\
-		Enemy.cpp\
-		GameObject.cpp\
-		Missile.cpp\
-		Player.cpp\
-		main.cpp\
-		ObjectManager.cpp
+SRC =	src/Arena.cpp\
+		src/Enemy.cpp\
+		src/GameObject.cpp\
+		src/Missile.cpp\
+		src/Player.cpp\
+		src/main.cpp\
+		src/ObjectManager.cpp
 
 NFLAG = -lncurses
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:src/.cpp=objs/.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(COMP) $(COMPFLAGS) $(NFLAG) -o $(NAME) $(OBJ)
+	$(COMP) $(COMPFLAGS) $(NFLAG) -o $(NAME) $(OBJ) -I ./headers
 
 %.o: %.cpp
 	$(COMP) $(COMPFLAGS) -o $@ -c $<
