@@ -101,7 +101,12 @@ void	Arena::gameLoop( void ){
 void	Arena::exit( void ){
 	endwin();
 	if (this->died == 1){
-		std::cout << "YOU SUCK! Play again?..." << std::endl;
+		std::cout << "\n\033[1;31m __     ______  _    _     _____ _____ ______ _____  \033[0m" << std::endl;
+		std::cout << "\033[1;31m \\ \\   / / __ \\| |  | |   |  __ \\_   _|  ____|  __ \\ \033[0m" << std::endl;
+		std::cout << "\033[1;31m  \\ \\_/ / |  | | |  | |   | |  | || | | |__  | |  | |\033[0m" << std::endl;
+		std::cout << "\033[1;31m   \\   /| |  | | |  | |   | |  | || | |  __| | |  | |\033[0m" << std::endl;
+		std::cout << "\033[1;31m    | | | |__| | |__| |   | |__| || |_| |____| |__| |\033[0m" << std::endl;
+		std::cout << "\033[1;31m    |_|  \\____/ \\____/    |_____/_____|______|_____/ \033[0m\n\n" << std::endl ;
 	}
 }
 
