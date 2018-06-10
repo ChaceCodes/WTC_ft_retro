@@ -31,7 +31,7 @@ ObjectManager::ObjectManager( int maxX, int maxY){
 void	ObjectManager::playerFire( void ) {
 	int i = -1;
 
-	while (++i < 100){
+	while (++i < 10){
 		if (missile[i].isActive() == 0){
 			missile[i].activate( this->player->getPosX() + 1, this->player->getPosY() );
 			return;
@@ -49,12 +49,21 @@ Player *ObjectManager::getPlayer( void ) {
 
 void	ObjectManager::collisionManager( void ) {
 	//loops through arrays of alive enemy_missiles, enemies and bullets
+	int	i = -1;
+	int j = -1;
+	while (++i < 10){
+		if (this->missile[i].isActive())
+			while (++j < this->maxY)
+				if (this->missile[i].selfCollision( this->maxX -5, j ) == 1)
+					this->missile[i].deactivate();
+			j = -1;
+	}
 }
 
 void	ObjectManager::moveManager( void ) {
 	//loops through arrays of alive enemy_missiles, enemies and bullets	
 	int	i = -1;
-	while (++i < 100){
+	while (++i < 10){
 		if (this->missile[i].isActive()){
 			this->missile[i].updatePos( 1, 0 );
 		}
@@ -65,7 +74,7 @@ void	ObjectManager::drawManager( void ) {
 	//loops through arrays of alive enemy_missiles, enemies and bullets
 	int i = -1;
 	this->player->drawSelf();
-	while (++i < 100){
+	while (++i < 10){
 		if (this->missile[i].isActive())
 			this->missile[i].drawSelf();
 	}

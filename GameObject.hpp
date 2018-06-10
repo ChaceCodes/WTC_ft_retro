@@ -5,7 +5,6 @@
 
 class GameObject {
 
-
 public:
 
     GameObject( void );
@@ -20,6 +19,8 @@ public:
     void    drawSelf( void );
     int     isActive( void );
     void    activate( int x, int y );
+    int     selfCollision( int x, int y );
+    void    deactivate();
 
 protected: // maybe
     int state;
