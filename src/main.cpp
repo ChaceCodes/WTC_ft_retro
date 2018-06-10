@@ -23,7 +23,7 @@ int main()
 	{
 		std::cout<<"ENTER A COMMAND(\033[1;32mSTART\033[0m)(\033[1;31mEXIT\033[0m) - For rules type HELP:\n";
 		std::getline(std::cin, main);
-		if (main == "start" || main == "START" || "s"){
+		if (main == "start" || main == "START" || main == "s"){
 			if (gameArena.initialise() == 1)
 			{
 				std::cout<<"Window too small!(get a bigger monitor you noob)\n";
