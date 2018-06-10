@@ -112,12 +112,6 @@ void	Arena::printLines(int *lc)
 		char2 = '\\';
 		char3 = '_';
 	}
-	else 
-	{
-		char1 = 'a';
-		char2 = 'b';
-		char3 = 'c';
-	}
 	for (int i = 1; i < this->maxX-3; i++)
 	{
 		mvaddch(1, i, char1);
