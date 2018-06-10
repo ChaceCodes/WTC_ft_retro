@@ -25,6 +25,13 @@ void	Arena::initialise( void ){
 	nodelay(stdscr, TRUE);
 	curs_set(FALSE);
 	raw();
+	if(has_colors() == FALSE)
+	{	endwin();
+		printf("Your terminal does not support color\n");
+		exit();
+	}
+	start_color();	
+	init_pair(1, COLOR_GREEN, COLOR_BLACK);
 
 	this->OM = new  ObjectManager(this->maxX, this->maxY); // ObjectManager instance
 }
