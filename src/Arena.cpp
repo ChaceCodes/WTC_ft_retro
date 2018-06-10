@@ -25,13 +25,13 @@ void	Arena::initialise( void ){
 	nodelay(stdscr, TRUE);
 	curs_set(FALSE);
 	raw();
-	if(has_colors() == FALSE)
-	{	endwin();
-		printf("Your terminal does not support color\n");
-		exit();
-	}
-	start_color();	
-	init_pair(1, COLOR_GREEN, COLOR_BLACK);
+	// if(has_colors() == FALSE)
+	// {	endwin();
+	// 	printf("Your terminal does not support color\n");
+	// 	exit();
+	// }
+	// start_color();	
+	// init_pair(1, COLOR_GREEN, COLOR_BLACK);
 
 	this->OM = new  ObjectManager(this->maxX, this->maxY); // ObjectManager instance
 }
@@ -115,11 +115,11 @@ void	Arena::printLines(int *lc)
 	for (int i = 1; i < this->maxX-3; i++)
 	{
 		mvaddch(1, i, char1);
-		mvaddch(this->maxY-2, i++, char1);
+		mvaddch(this->maxY-4, i++, char1);
 		mvaddch(1, i, char2);
-		mvaddch(this->maxY-2, i++, char2);
+		mvaddch(this->maxY-4, i++, char2);
 		mvaddch(1, i, char3);
-		mvaddch(this->maxY-2, i, char3);
+		mvaddch(this->maxY-4, i, char3);
 		//usleep ( 1000 );
 	}
 }
