@@ -33,7 +33,7 @@ public:
 	int		getMaxY( void );
 	void	gameTickCounter( void );
 	int		getGameTick( void );
-	void	enemySpawner( int x, int y );
+	void	enemySpawner( void );
 	void	objectCleaner( void );
 
 protected: // maybe
