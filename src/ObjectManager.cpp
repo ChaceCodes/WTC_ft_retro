@@ -87,6 +87,7 @@ void	ObjectManager::collisionManager( void ) {
 	int j = -1;
 	int k = -1;
 
+	i = -1;
 	while (++i < MC){ // Missile loop
 		if (this->missile[i].isActive()) {
 			while (++k < EC){
@@ -118,7 +119,7 @@ void	ObjectManager::enemySpawner( int x, int y ) {
 	while (++i < EC){ // Enemy loop
 		srand(time(NULL));
 		if (this->enemy[i].isActive() == 0){
-			this->enemy[i].activate( this->maxX - 10, (rand() % (this->maxY -6)) +2 );
+			this->enemy[i].activate( this->maxX - 3, (rand() % (this->maxY -6)) +2 );
 			return;
 		}
 	}

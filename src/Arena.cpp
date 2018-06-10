@@ -30,6 +30,7 @@ int	Arena::initialise( void ){
 	nodelay(stdscr, TRUE);
 	curs_set(FALSE);
 	raw();
+	this->died = 0;
 	// if(has_colors() == FALSE)
 	// {	endwin();
 	// 	printf("Your terminal does not support color\n");
@@ -69,7 +70,10 @@ void	Arena::gameLoop( void ){
 
 		refresh();
 		ch = getch();
-
+		if (this->OM->player->isActive() == 0) {
+			this->died = 1;
+			quit = 1;
+		}
 		switch (ch) {
 			case KEY_LEFT:
 				this->OM->player->updatePos(-1, 0);
@@ -96,6 +100,9 @@ void	Arena::gameLoop( void ){
 
 void	Arena::exit( void ){
 	endwin();
+	if (this->died == 1){
+		std::cout << "YOU SUCK! Play again?..." << std::endl;
+	}
 }
 
 void	Arena::printLines(int *lc, int score)

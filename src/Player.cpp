@@ -25,6 +25,7 @@ Player::Player(int maxX, int maxY){
 	this->x = 5;
 	this->y = 5;
 	this->chr = '>';
+	this->state = 1;
 }
 
 void	Player::updatePos(int x, int y){

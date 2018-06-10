@@ -31,6 +31,7 @@ class Arena{
         
         int     maxX;
         int     maxY;
+        int     died;
 
 
 }; 
