@@ -115,10 +115,11 @@ void	ObjectManager::collisionManager( void ) {
 
 void	ObjectManager::enemySpawner( void ) {
 	int i = -1;
-	while (++i < EC){ // Enemy loop
-		srand(time(NULL));
-		if (this->enemy[i].isActive() == 0){
-			this->enemy[i].activate( this->maxX - 2, (rand() % (this->maxY -6)) +2);
+	if (this->ticks == 4){
+		while (++i < EC){ // Enemy loop
+			if (this->enemy[i].isActive() == 0){
+				this->enemy[i].activate( this->maxX - 2, (rand() % (this->maxY -6)) +2);
+			}
 		}
 	}
 }
@@ -134,7 +135,7 @@ void	ObjectManager::moveManager( void ) {
 	i = -1;
 	while (++i < EC){ // Enemy loop
 		if (this->enemy[i].isActive() /*&& this->ticks == 4*/){
-			this->enemy[i].updatePos( -1, 0 );
+			this->enemy[i].updatePos( -1 , 0 ); //-1 to rand()
 			return;
 		}
 	}
