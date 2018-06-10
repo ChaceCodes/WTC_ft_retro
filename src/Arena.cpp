@@ -54,6 +54,7 @@ void	Arena::gameLoop( void ){
 		if (display == 3){ lc += ((lc >= 2) ? -2 : 1 ); display = 0; }
 		else { display++; }
 
+		
 		this->OM->enemySpawner( 1, 1); //meaningless values right now
 		this->OM->collisionManager();
 		this->OM->moveManager();

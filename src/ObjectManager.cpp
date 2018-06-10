@@ -1,7 +1,8 @@
 #include "ObjectManager.hpp"
 #include <ncurses.h>
+#include <time.h>
 
-#define EC 1 // Enemy Count
+#define EC 5 // Enemy Count
 #define MC 10 // Missile Count
 #define EMC 10 // Enemy Missile Count
 
@@ -103,7 +104,7 @@ void	ObjectManager::collisionManager( void ) {
 	i = -1;
 	while (++i < EC){
 		if (this->enemy[i].isActive())
-			if ((this->enemy[i].selfCollision( g>getPosX(), this->player->getPosY())) ||
+			if ((this->enemy[i].selfCollision( this->player->getPosX(), this->player->getPosY())) ||
 			(this->enemy[i].selfCollision( this->player->getPosX() + 1, this->player->getPosY()))){
 				this->enemy[i].deactivate();
 				this->player->deactivate();
@@ -115,8 +116,9 @@ void	ObjectManager::enemySpawner( int x, int y ) {
 	int i = -1;
 
 	while (++i < EC){ // Enemy loop
+		srand(time(NULL));
 		if (this->enemy[i].isActive() == 0){
-			this->enemy[i].activate( this->maxX - 10, 10 );
+			this->enemy[i].activate( this->maxX - 10, (rand() % (this->maxY -6)) +2 );
 			return;
 		}
 	}
