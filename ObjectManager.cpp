@@ -1,6 +1,10 @@
 #include "ObjectManager.hpp"
 #include <ncurses.h>
 
+#define EC 1 // Enemy Count
+#define MC 10 // Missile Count
+#define EMC 10 // Enemy Missile Count
+
 ObjectManager::ObjectManager( void ) {
 }
 
@@ -20,13 +24,26 @@ ObjectManager::~ObjectManager( void ) {
 }
 
 ObjectManager::ObjectManager( int maxX, int maxY){
+	this->ticks = 0;
 	this->maxX = maxX;
 	this->maxY = maxY;
 	this->player = new Player( maxX, maxY );
-	this->enemy = new Enemy[10];
-	this->missile = new Missile[10];
-	this->enemy_missile = new Missile[100];
+	this->enemy = new Enemy[EC];
+	this->missile = new Missile[MC];
+	this->enemy_missile = new Missile[EMC];
 }
+
+void	ObjectManager::gameTickCounter() {
+	if (this->ticks == 5)
+		this->ticks = 0;
+	else
+		this->ticks += 1;
+}
+
+int		ObjectManager::getGameTick( void ) {
+	return (this->ticks);
+}
+
 
 void	ObjectManager::playerFire( void ) {
 	int i = -1;
@@ -48,35 +65,69 @@ Player *ObjectManager::getPlayer( void ) {
 }
 
 void	ObjectManager::collisionManager( void ) {
-	//loops through arrays of alive enemy_missiles, enemies and bullets
+	// loops through arrays of alive enemy_missiles, enemies and bullets
+	// add collision check for player
 	int	i = -1;
 	int j = -1;
-	while (++i < 10){
+	int k = -1;
+
+	while (++i < MC){ // Missile loop
 		if (this->missile[i].isActive())
 			while (++j < this->maxY)
 				if (this->missile[i].selfCollision( this->maxX -5, j ) == 1)
 					this->missile[i].deactivate();
 			j = -1;
+			while (++k < EC){
+				if ( this->missile[i].selfCollision( this->enemy[k].getPosX(), this->enemy[k].getPosY() ) ) {
+					this->missile[i].deactivate();
+					this->enemy[k].deactivate();
+				}
+			}
+	}
+}
+
+void	ObjectManager::enemySpawner( int x, int y ) {
+	int i = -1;
+
+	while (++i < EC){ // Enemy loop
+		if (this->enemy[i].isActive() == 0){
+			this->enemy[i].activate( this->maxX - 10, 10 );
+			return;
+		}
 	}
 }
 
 void	ObjectManager::moveManager( void ) {
-	//loops through arrays of alive enemy_missiles, enemies and bullets	
+	// loops through arrays of alive enemy_missiles, enemies and bullets	
 	int	i = -1;
-	while (++i < 10){
+	while (++i < MC){ // Missile loop
 		if (this->missile[i].isActive()){
 			this->missile[i].updatePos( 1, 0 );
+		}
+	}
+	i = -1;
+	while (++i < EC){ // Enemy loop
+		if (this->enemy[i].isActive()){
+			this->enemy[i].drawSelf();
+			return;
 		}
 	}
 }
 
 void	ObjectManager::drawManager( void ) {
-	//loops through arrays of alive enemy_missiles, enemies and bullets
+	// loops through arrays of alive enemy_missiles, enemies and bullets
 	int i = -1;
 	this->player->drawSelf();
-	while (++i < 10){
+	while (++i < MC){ // Missile loop
 		if (this->missile[i].isActive())
 			this->missile[i].drawSelf();
+	}
+	i = -1;
+	while (++i < EC){ // Enemy loop
+		if (this->enemy[i].isActive()){
+			this->enemy[i].drawSelf();
+			return;
+		}
 	}
 }
 

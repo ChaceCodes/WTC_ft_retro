@@ -31,36 +31,28 @@ void	Player::updatePos(int x, int y){
 	if (x > 0)
 	{
 		if (this->x + x == maxX-2)
-		{
 			return;
-		}		
 		else
 			this->x += x;
 	}
 	if (x < 0)
 	{
 		if (this->x + x == 1)
-		{
 			return;
-		}
 		else
 			this->x += x;
 	}
 	if (y > 0)
 	{
 		if (this->y + y == maxY-2)
-		{
 			return;
-		}		
 		else
 			this->y += y;
 	}
 	if (y < 0)
 	{
 		if (this->y + y == 1)
-		{
 			return;
-		}
 		else
 			this->y += y;
 	}
