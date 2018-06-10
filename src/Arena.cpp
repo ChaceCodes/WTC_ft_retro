@@ -58,6 +58,7 @@ void	Arena::gameLoop( void ){
 		this->OM->collisionManager();
 		this->OM->moveManager();
 		this->OM->drawManager();
+		this->OM->objectCleaner();
 
 		refresh();
 		ch = getch();

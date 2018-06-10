@@ -34,6 +34,7 @@ public:
 	void	gameTickCounter( void );
 	int		getGameTick( void );
 	void	enemySpawner( int x, int y );
+	void	objectCleaner( void );
 
 protected: // maybe
 	int ticks;
