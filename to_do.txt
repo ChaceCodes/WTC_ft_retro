@@ -1,0 +1,9 @@
+death screen
+
+"multi char" sprites
+
+lives
+
+enemy shooting
+
+"timing"

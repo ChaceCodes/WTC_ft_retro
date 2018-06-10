@@ -64,6 +64,21 @@ Player *ObjectManager::getPlayer( void ) {
 	return(this->player);
 }
 
+void	ObjectManager::objectCleaner( void ) {
+	int i = -1;
+	while ( ++i < MC ) {
+		if (this->missile[i].isActive())
+			if (this->missile[i].getPosX() > this->maxX - 3)
+				this->missile[i].deactivate();
+	}
+	i = -1;
+	while ( ++i < EC ) {
+		if (this->enemy[i].isActive())
+			if (this->enemy[i].getPosX() < 2)
+				this->enemy[i].deactivate();
+	}
+}
+
 void	ObjectManager::collisionManager( void ) {
 	// loops through arrays of alive enemy_missiles, enemies and bullets
 	// add collision check for player
@@ -80,20 +95,19 @@ void	ObjectManager::collisionManager( void ) {
 					 {
 						this->missile[i].deactivate();
 						this->enemy[k].deactivate();
-					}
-					while ( ++j < this->maxY ) {
-						if (this->enemy[k].selfCollision( 5, j ))
-						this->enemy[k].deactivate();
-					}
-				j = -1;
+					};
 			}
-			while ( ++j < this->maxY ) {
-				if (this->missile[i].selfCollision( this->maxX - 5, j ))
-					this->missile[i].deactivate();
-			}
-			j = -1;
 		}
 		k = -1;
+	}
+	i = -1;
+	while (++i < EC){
+		if (this->enemy[i].isActive())
+			if ((this->enemy[i].selfCollision( g>getPosX(), this->player->getPosY())) ||
+			(this->enemy[i].selfCollision( this->player->getPosX() + 1, this->player->getPosY()))){
+				this->enemy[i].deactivate();
+				this->player->deactivate();
+			}
 	}
 }
 
