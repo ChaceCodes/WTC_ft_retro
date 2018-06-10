@@ -20,6 +20,7 @@ Arena::~Arena( void ) {
 
 int	Arena::initialise( void ){
 	initscr();
+	srand((int)time(0));
 	getmaxyx(stdscr, this->maxY, this->maxX); // move inside loop to make dynamically sized window
 	if(this->maxX < 30|| this->maxY < 15)
 	{
