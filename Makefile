@@ -20,8 +20,8 @@ $(NAME):
 	$(COMP) $(COMPFLAGS) $(SRC) $(NFLAG) -o $(NAME) -I ./headers
 
 clean:
+	rm -rf $(NAME)ß
 
 fclean: clean
-	rm -rf $(NAME)
 
 re: fclean all
