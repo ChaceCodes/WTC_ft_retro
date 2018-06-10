@@ -48,3 +48,14 @@ void    GameObject::updatePos( int x, int y ) {
 void	GameObject::drawSelf( void ){
 	mvaddch(this->y, this->x, this->chr);
 }
+
+int		GameObject::selfCollision( int x, int y ){
+	if (this->x == x && this->y == y)
+		return (1);
+	return (0);
+}
+
+void	GameObject::deactivate( void ) {
+	this->state = 0;
+	//mvaddch(this->y, this->x, ' ');//experimental
+}

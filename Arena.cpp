@@ -64,8 +64,9 @@ void	Arena::gameLoop( void ){
 
 		//this->enemy[0].drawSelf();
 		//OM.player->drawSelf();
-		this->OM->drawManager(); //DEBUG
+		this->OM->collisionManager();
 		this->OM->moveManager();
+		this->OM->drawManager(); //DEBUG
 
 		refresh();
 		ch = getch();
@@ -114,9 +115,6 @@ void	Arena::gameLoop( void ){
 }
 
 void	Arena::exit( void ){
-	//delete [] this->enemy;
-	//delete [] this->missile;
-	//delete [] this->enemy_missile;
 	endwin();
 }
 
