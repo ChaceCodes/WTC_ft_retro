@@ -31,8 +31,12 @@ public:
 	void	drawManager( void );
 	int		getMaxX( void );
 	int		getMaxY( void );
+	void	gameTickCounter( void );
+	int		getGameTick( void );
+	void	enemySpawner( int x, int y );
 
 protected: // maybe
+	int ticks;
     int maxX;
     int maxY;
 };
