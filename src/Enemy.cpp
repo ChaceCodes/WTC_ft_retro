@@ -2,7 +2,7 @@
 #include <string>
 
 Enemy::Enemy( void ) {
-	this->chr = '@';
+	this->chr = '<';
 }
 
 Enemy::Enemy( const Enemy & srcObj ) {
