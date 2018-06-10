@@ -14,6 +14,7 @@ ObjectManager::ObjectManager ( const ObjectManager & srcObj ) {
 }
 
 ObjectManager & ObjectManager::operator=( const ObjectManager & srcObj ) {
+	this->maxX = srcObj.maxX;
 	return (*this);
 }
 
@@ -82,9 +83,7 @@ void	ObjectManager::objectCleaner( void ) {
 
 void	ObjectManager::collisionManager( void ) {
 	// loops through arrays of alive enemy_missiles, enemies and bullets
-	// add collision check for player
 	int	i = -1;
-	int j = -1;
 	int k = -1;
 
 	i = -1;

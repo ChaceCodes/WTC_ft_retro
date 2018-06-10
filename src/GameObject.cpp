@@ -10,6 +10,7 @@ GameObject::GameObject ( const GameObject & srcObj ) {
 }
 
 GameObject & GameObject::operator=( const GameObject & srcObj ) {
+	this->maxX = srcObj.maxX;
 	return (*this);
 }
 
