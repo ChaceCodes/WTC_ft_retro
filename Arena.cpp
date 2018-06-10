@@ -53,8 +53,8 @@ void	Arena::gameLoop( void ){
 		box( stdscr, 0, 0);
 		printLines(&lc);
 
-		if (display == 400){
-			lc++; 
+		if (display == 3){
+			lc += ((lc >= 2) ? -2 : 1 );
 			display = 0;
 		}
 		else 
@@ -142,7 +142,12 @@ void	Arena::printLines(int *lc )
 		char1 = '/';
 		char2 = '\\';
 		char3 = '_';
-		*lc = 0;
+	}
+	else 
+	{
+		char1 = 'a';
+		char2 = 'b';
+		char3 = 'c';
 	}
 	for (int i = 1; i < this->maxX-3; i++)
 	{

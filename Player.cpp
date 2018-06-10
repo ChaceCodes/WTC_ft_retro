@@ -57,7 +57,7 @@ void	Player::updatePos(int x, int y){
 	}
 	if (y < 0)
 	{
-		if (this->y + y == 2)
+		if (this->y + y == 1)
 		{
 			return;
 		}
