@@ -58,10 +58,6 @@ void	ObjectManager::playerFire( void ) {
 	}
 }
 
-void	ObjectManager::enemyFire( int x, int y ) {
-
-}
-
 Player *ObjectManager::getPlayer( void ) {
 	return(this->player);
 }

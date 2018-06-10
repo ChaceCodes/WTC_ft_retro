@@ -43,7 +43,7 @@ int	Arena::initialise( void ){
 	init_pair(1, COLOR_GREEN, COLOR_BLACK);
 	init_pair(2, COLOR_RED, COLOR_BLACK);
 	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(4, COLOR_WHITE, COLOR_BLACK);
+	init_pair(4, COLOR_MAGENTA, COLOR_BLACK);
 
 	this->OM = new  ObjectManager(this->maxX, this->maxY); // ObjectManager instance
 	return (0);
@@ -62,8 +62,7 @@ void	Arena::gameLoop( void ){
 		clear();
 		cl = clock();
 		printLines(&lc, score, cl);
-		score += 50;
-		if (display == 3){ lc += ((lc >= 2) ? -2 : 1 ); display = 0; }
+		if (display == 3){ score += 2; lc += ((lc >= 2) ? -2 : 1 ); display = 0; }
 		else { display++; }
 
 		
@@ -139,6 +138,7 @@ void	Arena::printLines(int *lc, int score, clock_t cl)
 		char2 = '\\';
 		char3 = '_';
 	}
+	attron(COLOR_PAIR(4));
 	for (int i = 1; i < this->maxX-3; i++)
 	{
 		mvaddch(1, i, char1);
@@ -148,6 +148,6 @@ void	Arena::printLines(int *lc, int score, clock_t cl)
 		mvaddch(1, i, char3);
 		mvaddch(this->maxY-4, i, char3);
 	}
-
-	mvprintw(this->maxY-2, 1, "SCORE: %i	TIME: %f", score/2, (float)cl/(60 * 60 * 2));
+attroff(COLOR_PAIR(4));
+	mvprintw(this->maxY-2, 1, "SCORE: %i	TIME: %.2f", score, (float)cl/(60 * 60 * 2));
 }

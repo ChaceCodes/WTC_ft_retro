@@ -1,6 +1,6 @@
 COMP = clang++
 
-COMPFLAGS = #-Wall -Werror -Wextra
+COMPFLAGS = -Wall -Werror -Wextra
 
 NAME = ft_retro
 
