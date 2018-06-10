@@ -44,7 +44,7 @@ void	Player::updatePos(int x, int y){
 	}
 	if (y > 0)
 	{
-		if (this->y + y == maxY-2)
+		if (this->y + y == maxY-4)
 			return;
 		else
 			this->y += y;

@@ -46,9 +46,9 @@ void    GameObject::updatePos( int x, int y ) {
 }
 
 void	GameObject::drawSelf( void ){
-	attron(COLOR_PAIR(1));
+	//attron(COLOR_PAIR(1));
 	mvaddch(this->y, this->x, this->chr);
-	attroff(COLOR_PAIR(1));
+	//attroff(COLOR_PAIR(1));
 }
 
 int		GameObject::selfCollision( int x, int y ){
