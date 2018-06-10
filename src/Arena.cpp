@@ -54,13 +54,14 @@ void	Arena::gameLoop( void ){
 	int ch = 0;
 	int quit = 0;
 	int score = 0;
+	clock_t cl = clock();
 
 	int lc = 0; // character map for scrolling top and bottom
 	int display = 0; // loop counter for scrolling top and bottom
 	while (!quit){
 		clear();
-
-		printLines(&lc, score);
+		cl = clock();
+		printLines(&lc, score, cl);
 		score += 50;
 		if (display == 3){ lc += ((lc >= 2) ? -2 : 1 ); display = 0; }
 		else { display++; }
@@ -115,7 +116,7 @@ void	Arena::exit( void ){
 	}
 }
 
-void	Arena::printLines(int *lc, int score)
+void	Arena::printLines(int *lc, int score, clock_t cl)
 {
 	char char1;
 	char char2;
@@ -148,5 +149,5 @@ void	Arena::printLines(int *lc, int score)
 		mvaddch(this->maxY-4, i, char3);
 	}
 
-	mvprintw(this->maxY-2, 1, "SCORE: %i	TIME: %i", score/2, score/1300);
+	mvprintw(this->maxY-2, 1, "SCORE: %i	TIME: %f", score/2, (float)cl/(60 * 60 * 2));
 }
