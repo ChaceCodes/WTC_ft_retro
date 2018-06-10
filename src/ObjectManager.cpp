@@ -100,6 +100,15 @@ void	ObjectManager::collisionManager( void ) {
 		}
 		k = -1;
 	}
+	i = -1;
+	while (++i < EC){
+		if (this->enemy[i].isActive())
+			if ((this->enemy[i].selfCollision( g>getPosX(), this->player->getPosY())) ||
+			(this->enemy[i].selfCollision( this->player->getPosX() + 1, this->player->getPosY()))){
+				this->enemy[i].deactivate();
+				this->player->deactivate();
+			}
+	}
 }
 
 void	ObjectManager::enemySpawner( int x, int y ) {
