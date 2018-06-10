@@ -14,18 +14,12 @@ SRC =	src/Arena.cpp\
 
 NFLAG = -lncurses
 
-OBJ = $(SRC:src/.cpp=objs/.o)
-
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(COMP) $(COMPFLAGS) $(NFLAG) -o $(NAME) $(OBJ) -I ./headers
-
-%.o: %.cpp
-	$(COMP) $(COMPFLAGS) -o $@ -c $<
+$(NAME):
+	$(COMP) $(COMPFLAGS) $(SRC) $(NFLAG) -o $(NAME) -I ./headers
 
 clean:
-	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
