@@ -10,6 +10,7 @@ Arena::Arena ( const Arena & srcObj ) {
 }
 
 Arena & Arena::operator=( const Arena & srcObj ) {
+	this->maxX = srcObj.maxX;
 	return (*this);
 }
 
@@ -47,7 +48,6 @@ void	Arena::gameLoop( void ){
 
 	int ch = 0;
 	int quit = 0;
-	int y = 1;
 	int score = 0;
 
 	int lc = 0; // character map for scrolling top and bottom
