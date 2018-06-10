@@ -21,15 +21,24 @@ int main()
 	
 	while (1)
 	{
-		std::cout<<"ENTER A COMMAND(\033[1;32mSTART\033[0m)(\033[1;31mEXIT\033[0m): ...\n";
+		std::cout<<"ENTER A COMMAND(\033[1;32mSTART\033[0m)(\033[1;31mEXIT\033[0m) - For rules type HELP:\n";
 		std::getline(std::cin, main);
-		if (main == "start" || main == "START"){
-			gameArena.initialise();
-			gameArena.gameLoop();
-			gameArena.exit();
+		if (main == "start" || main == "START" || main == "s"){
+			if (gameArena.initialise() == 1)
+			{
+				std::cout<<"Window too small!(get a bigger monitor you noob)\n";
+				return(1);
+			}
+			else{
+				gameArena.gameLoop();
+				gameArena.exit();
+			}
 		}
-		else if (main == "exit" || main == "EXIT"){
+		else if (main == "exit" || main == "EXIT" || main == "q"){
 			return (0);
+		}
+		else if (main == "help" || main == "HELP"){
+			std::cout<<"Controls:\n\nMove Left: Right Arrow\nMove Left: Left Arrow\nMove Up: Up Arrow\nMove Down: Down Arrow\nFire Lazer: SPACE_BAR\nEXIT: \"Q\"\n\n";
 		}
 		else
 		{

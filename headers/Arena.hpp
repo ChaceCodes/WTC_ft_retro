@@ -23,7 +23,7 @@ class Arena{
         Arena & operator=( const Arena &srcObj );
         ~Arena( void );
         
-        void    initialise( void );
+        int    initialise( void );
         void    gameLoop( void );
         void    exit( void );
         void    printLines( int *lc, int score);

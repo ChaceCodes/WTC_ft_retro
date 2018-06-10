@@ -17,9 +17,14 @@ Arena::~Arena( void ) {
 
 }
 
-void	Arena::initialise( void ){
+int	Arena::initialise( void ){
 	initscr();
 	getmaxyx(stdscr, this->maxY, this->maxX); // move inside loop to make dynamically sized window
+	if(this->maxX < 30|| this->maxY < 15)
+	{
+		endwin();
+		return(1);
+	}
 	keypad(stdscr, TRUE);
 	noecho();
 	nodelay(stdscr, TRUE);
@@ -34,6 +39,7 @@ void	Arena::initialise( void ){
 	// init_pair(1, COLOR_GREEN, COLOR_BLACK);
 
 	this->OM = new  ObjectManager(this->maxX, this->maxY); // ObjectManager instance
+	return (0);
 }
 
 void	Arena::gameLoop( void ){

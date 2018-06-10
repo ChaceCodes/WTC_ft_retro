@@ -47,7 +47,7 @@ void    GameObject::updatePos( int x, int y ) {
 
 void	GameObject::drawSelf( void ){
 	//attron(COLOR_PAIR(1));
-	mvaddch(this->y, this->x, this->chr);
+	mvprintw(this->y, this->x, "%c>", this->chr);
 	//attroff(COLOR_PAIR(1));
 }
 
