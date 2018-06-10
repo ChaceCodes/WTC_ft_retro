@@ -72,17 +72,28 @@ void	ObjectManager::collisionManager( void ) {
 	int k = -1;
 
 	while (++i < MC){ // Missile loop
-		if (this->missile[i].isActive())
-			while (++j < this->maxY)
-				if (this->missile[i].selfCollision( this->maxX -5, j ) == 1)
-					this->missile[i].deactivate();
-			j = -1;
+		if (this->missile[i].isActive()) {
 			while (++k < EC){
-				if ( this->missile[i].selfCollision( this->enemy[k].getPosX(), this->enemy[k].getPosY() ) ) {
-					this->missile[i].deactivate();
-					this->enemy[k].deactivate();
-				}
+				if (this->enemy[k].isActive())
+					if ((this->missile[i].selfCollision(this->enemy[k].getPosX(), this->enemy[k].getPosY())) ||
+					(this->missile[i].selfCollision(this->enemy[k].getPosX() -1, this->enemy[k].getPosY())))
+					 {
+						this->missile[i].deactivate();
+						this->enemy[k].deactivate();
+					}
+					while ( ++j < this->maxY ) {
+						if (this->enemy[k].selfCollision( 5, j ))
+						this->enemy[k].deactivate();
+					}
+				j = -1;
 			}
+			while ( ++j < this->maxY ) {
+				if (this->missile[i].selfCollision( this->maxX - 5, j ))
+					this->missile[i].deactivate();
+			}
+			j = -1;
+		}
+		k = -1;
 	}
 }
 
@@ -108,7 +119,7 @@ void	ObjectManager::moveManager( void ) {
 	i = -1;
 	while (++i < EC){ // Enemy loop
 		if (this->enemy[i].isActive()){
-			this->enemy[i].drawSelf();
+			this->enemy[i].updatePos( -1, 0 );
 			return;
 		}
 	}
