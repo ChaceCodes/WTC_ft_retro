@@ -32,13 +32,17 @@ int	Arena::initialise( void ){
 	curs_set(FALSE);
 	raw();
 	this->died = 0;
-	// if(has_colors() == FALSE)
-	// {	endwin();
-	// 	printf("Your terminal does not support color\n");
-	// 	exit();
-	// }
-	// start_color();	
-	// init_pair(1, COLOR_GREEN, COLOR_BLACK);
+	if(has_colors() == FALSE)
+	{	
+		endwin();
+		printf("Your terminal does not support color\n");
+		exit();
+	}
+	start_color();	
+	init_pair(1, COLOR_GREEN, COLOR_BLACK);
+	init_pair(2, COLOR_RED, COLOR_BLACK);
+	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(4, COLOR_WHITE, COLOR_BLACK);
 
 	this->OM = new  ObjectManager(this->maxX, this->maxY); // ObjectManager instance
 	return (0);
@@ -52,10 +56,9 @@ void	Arena::gameLoop( void ){
 
 	int lc = 0; // character map for scrolling top and bottom
 	int display = 0; // loop counter for scrolling top and bottom
-
 	while (!quit){
 		clear();
-		box( stdscr, 0, 0);
+
 		printLines(&lc, score);
 		score += 50;
 		if (display == 3){ lc += ((lc >= 2) ? -2 : 1 ); display = 0; }
@@ -95,7 +98,7 @@ void	Arena::gameLoop( void ){
 				this->OM->playerFire();
 				break;
 		}
-		usleep(30000);
+		usleep(20000);
 	}
 }
 
@@ -142,7 +145,6 @@ void	Arena::printLines(int *lc, int score)
 		mvaddch(this->maxY-4, i++, char2);
 		mvaddch(1, i, char3);
 		mvaddch(this->maxY-4, i, char3);
-		//usleep ( 1000 );
 	}
 
 	mvprintw(this->maxY-2, 1, "SCORE: %i	TIME: %i", score/2, score/1300);
